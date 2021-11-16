@@ -4,20 +4,20 @@ const UserSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
+      required: [true, "A user must have a username"],
       min: 3,
       max: 20,
       unique: true,
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "A user must have an email"],
       max: 50,
       unique: true,
     },
     password: {
       type: String,
-      require: true,
+      required: [true, "User must have a password"],
       min: 6,
       max: 20,
     },
@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    following: {
+    followings: {
       type: Array,
       default: [],
     },
